@@ -1,0 +1,47 @@
+[package]
+# Semantic Versionning is used: https://semver.org/
+version = "1.0.0"
+
+# The title and description fields are primarily for displaying extension info in UI
+title = "Fabricator Omniverse Extension"
+description = "fabricator omniverse extension"
+
+# Path (relative to the root) or content of readme markdown file for UI.
+readme  = "docs/README.md"
+
+# Path (relative to the root) of changelog
+changelog = "docs/CHANGELOG.md"
+
+# URL of the extension source repository.
+repository = "https://github.com/swatchoncompany/fabricator-omniverse-extension"
+
+# One of categories for UI.
+category = "Generative AI"
+
+# Keywords for the extension
+keywords = ["swatchon", "fabricator", "3d fabric"]
+
+# Icon to show in the extension manager
+icon = "data/icon.png"
+
+# Preview to show in the extension manager
+preview_image = "data/preview.png"
+
+
+# Use omni.ui to build simple UI
+[dependencies]
+"omni.kit.uiapp" = {}
+
+# Main python module this extension provides, it will be publicly available as "import omni.hello.world".
+[[python.module]]
+name = "fabricator.extension"
+
+[[test]]
+# Extra dependencies only to be used during test run
+dependencies = [
+    "omni.kit.ui_test" # UI testing extension
+]
+
+[python.pipapi]
+requirements = ["requests","urllib3==1.26.12","chardet==3.0.4","charset_normalizer==2.1.1"]
+use_online_index = true
