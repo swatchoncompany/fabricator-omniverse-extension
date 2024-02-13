@@ -92,6 +92,7 @@ class FabricatorExtension(omni.ext.IExt):
 
     def render_assets_page(self):
         try:
+            print(f"[fabricator.extension] render_assets_page")
             assets, count = self.fabricator_service.load_assets(self.current_workspace_id(), self.page, FabricatorExtension.PER_PAGE)
             self.max_page = count
 
@@ -138,8 +139,8 @@ class FabricatorExtension(omni.ext.IExt):
         def search_btn_handler():
             m = self.page_search_input.model
             search_page = m.get_value_as_int()
-            if search_page == curr_page:
-                return
+            # if search_page == curr_page:
+            #     return
             if search_page < 1 or search_page > self.max_page:
                 print("[fabricator.extension] Invalid search range")
                 m.set_value(curr_page)
